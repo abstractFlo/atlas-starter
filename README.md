@@ -1,11 +1,11 @@
 # Abstract Framework Starter for creating nice gamemodes with alt:V
 
-It lives at https://github.com/abstractFlo/abstract-framework-starter.
+It lives at https://github.com/abstractFlo/atlas-starter-docker.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx degit abstractFlo/abstract-framework-starter gamemode
+npx degit abstractFlo/atlas-starter-docker gamemode
 cd gamemode
 ```
 
