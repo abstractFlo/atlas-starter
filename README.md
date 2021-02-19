@@ -1,4 +1,4 @@
-# Abstract Framework Starter for creating nice gamemodes with alt:V
+# Atlas Framework Starter with Docker for creating nice gamemodes with alt:V
 
 It lives at https://github.com/abstractFlo/atlas-starter-docker.
 
