@@ -6,7 +6,7 @@ node_modules
 yarn-error.log
 environment.json
 server.cfg
-docker-compose.example.yml
+docker-compose.yml
 docker-compose.prod.yml
 /dist
 
