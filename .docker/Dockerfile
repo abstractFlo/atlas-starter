@@ -27,7 +27,7 @@ RUN apt-get purge -y wget jq && \
     apt-get clean
 
 ADD package.json /altv/package.json
-ADD start_server.sh /altv/start_server.sh
+ADD ../retail/start_server.sh /altv/start_server.sh
 RUN sed -i -e 's/\r$//' /altv/start_server.sh
 RUN chmod +x /altv/start_server.sh
 RUN chmod +x /altv/altv-server

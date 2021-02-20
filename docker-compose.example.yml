@@ -9,12 +9,15 @@ services:
     container_name: altv
     working_dir: /altv
     volumes:
-      - ${DOCKER_PROJECT_PATH}/docker-data/config/:/altv/config/
       - ${DOCKER_PROJECT_PATH}/.env/:/altv/.env
-      - ${DOCKER_PROJECT_PATH}/dist/:/altv/resources
+      - ${DOCKER_PROJECT_PATH}/package.json/:/altv/package.json
+
+      - ${DOCKER_PROJECT_PATH}/dist_retail/config:/altv/config
+      - ${DOCKER_PROJECT_PATH}/dist_retail/data:/altv/data
+      - ${DOCKER_PROJECT_PATH}/dist_resources:/altv/resources
+
       - ${DOCKER_PROJECT_PATH}/docker-data/logs/:/altv/logs/
       - ${DOCKER_PROJECT_PATH}/node_modules:/altv/node_modules
-      - ${DOCKER_PROJECT_PATH}/docker-data/data/:/altv/data/
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "7788:7788"

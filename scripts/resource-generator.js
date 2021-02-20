@@ -68,8 +68,8 @@ export class ResourceGenerator {
   createPathTo(filePath) {
     let outputPath = filePath;
 
-    if (process.env.BUILD_DIR) {
-      outputPath = `${process.env.BUILD_DIR}/${outputPath}`;
+    if (process.env.BUILD_DIR_RESOURCE) {
+      outputPath = `${process.env.BUILD_DIR_RESOURCE}/${outputPath}`;
     }
 
     return outputPath;

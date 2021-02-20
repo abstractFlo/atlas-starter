@@ -8,7 +8,7 @@ environment.json
 server.cfg
 docker-compose.yml
 docker-compose.prod.yml
-/dist
+/dist*
 
 !docker-data/database/.gitkeep
 !docker-data/logs/.gitkeep
