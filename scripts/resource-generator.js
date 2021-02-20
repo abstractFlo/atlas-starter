@@ -1,4 +1,4 @@
-import fs from 'fs-extra';
+import fs, {readJSONSync} from 'fs-extra';
 import path from 'path';
 import {config} from 'dotenv';
 import {terser} from 'rollup-plugin-terser';
@@ -131,16 +131,15 @@ export class ResourceGenerator {
       external = [],
   ) {
     plugins.push(
-        nodeResolve({
-          moduleDirectories: ['local_modules', 'node_modules'],
-        }),
+        nodeResolve(),
         typescript(),
         convertNamedImports({
           modules: [
             ...Object.keys(pkg.dependencies),
             ...Object.keys(pkg.devDependencies),
+            ...this.getDepsFromModule('atlas-server').dependencies,
             ...convertedModules,
-          ],
+          ].filter(m => !m.startsWith('@abstractflo')),
         }),
         autoExternal({
           builtins: true,
@@ -150,7 +149,14 @@ export class ResourceGenerator {
         }),
     );
 
-    external.push('alt-server');
+    external.push(
+        'alt-server',
+        ...Object.keys(pkg.devDependencies)
+            .filter(m => !m.startsWith('@abstractflo')),
+        ...this.getDepsFromModule('atlas-server')
+            .dependencies
+            .filter(m => !m.startsWith('@abstractflo')),
+    );
 
     return this.createRollupConfig(input, output, external, plugins);
   }
@@ -171,9 +177,7 @@ export class ResourceGenerator {
       plugins = [],
   ) {
     plugins.push(
-        nodeResolve({
-          moduleDirectories: ['local_modules', 'node_modules'],
-        }),
+        nodeResolve(),
         typescript(),
     );
 
@@ -189,6 +193,31 @@ export class ResourceGenerator {
    */
   isProduction() {
     return process.env.NODE_ENV === 'production';
+  }
+
+  /**
+   * Return the deps from framework specific module
+   *
+   * @param name
+   * @return {{devDependencies: [], dependencies: []}}
+   */
+  getDepsFromModule(name) {
+    const out = {
+      dependencies: [],
+      devDependencies: [],
+    };
+
+    try {
+      const file = readJSONSync(
+          path.resolve(process.cwd(), 'node_modules', '@abstractflo', name,
+              'package.json'));
+
+      out.dependencies = Object.keys(file.dependencies);
+      out.devDependencies = Object.keys(file.devDependencies);
+    } catch {
+    }
+
+    return out;
   }
 
 }

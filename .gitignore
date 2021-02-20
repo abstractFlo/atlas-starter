@@ -3,11 +3,10 @@
 .DS_Store
 .env
 node_modules
-local_modules
 yarn-error.log
 environment.json
 server.cfg
-docker-compose.yml
+docker-compose.example.yml
 docker-compose.prod.yml
 /dist
 

@@ -27,7 +27,6 @@ const snakeToCamel = (str) => {
  * @returns {{transform(*=, *): *}|*}
  */
 export function convertNamedImports(options = {}) {
-
   const modulesForConvert = options.modules || [];
 
   return {

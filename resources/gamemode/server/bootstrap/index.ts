@@ -1,6 +1,6 @@
 import * as alt from 'alt-server';
 import { resolve } from 'path';
-import { altLibRegister, setupServerConfigPath } from '@abstractFlo/shared';
+import { altLibRegister, setupServerConfigPath } from '@abstractflo/atlas-shared';
 import { PlayerBootstrap } from './player.bootstrap';
 import { container } from 'tsyringe';
 

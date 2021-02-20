@@ -1,11 +1,11 @@
 import { ScriptEvent } from '@resources/shared/constants';
-import { OnClient } from '@abstractFlo/server';
+import { OnClient } from '@abstractflo/atlas-server';
 import { hash, Player, Vector3, Vehicle } from 'alt-server';
-import { UtilsService } from '@abstractFlo/shared';
+import { UtilsService } from '@abstractflo/atlas-shared';
 import { singleton } from 'tsyringe';
 
 @singleton()
-export class ServerPlayerComponent {
+export class PlayerComponent {
 
 
   /**

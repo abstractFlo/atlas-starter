@@ -47,28 +47,6 @@ resourceGenerator.availableResources.forEach(resource => {
       );
     }
   }
-
-  if (pkg.isAssetPack) {
-    clientFiles.push(
-        {
-          input: `${resource}/index.js`,
-          output: {
-            file: `${resource}/dummy.js`,
-          },
-          plugins: [
-            copy({
-              targets: [
-                {
-                  src: `${resource}/assets/*`.replace(/\\/g, '/'),
-                  dest: resourceGenerator.createPathTo(pkg.name),
-                },
-              ],
-              verbose: true,
-            }),
-          ],
-        },
-    );
-  }
 });
 
 export default [

@@ -1,7 +1,7 @@
 import '@abraham/reflection';
 import './bootstrap';
 import { container } from 'tsyringe';
-import { LoaderService, UtilsService } from '@abstractFlo/shared';
+import { LoaderService, UtilsService } from '@abstractflo/atlas-shared';
 import { ServerModule } from './server.module';
 import { PlayerBootstrap } from './bootstrap/player.bootstrap';
 

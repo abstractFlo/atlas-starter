@@ -1,9 +1,9 @@
 import '@abraham/reflection';
 import './bootstrap';
 import { container } from 'tsyringe';
-import { LoaderService, UtilsService } from '@abstractFlo/shared';
+import { LoaderService, UtilsService } from '@abstractflo/atlas-shared';
 import { ClientModule } from './client.module';
-import { EventService } from '@abstractFlo/client';
+import { EventService } from '@abstractflo/atlas-client';
 import { ScriptEvent } from '@resources/shared/constants';
 
 const loader = container.resolve(LoaderService);

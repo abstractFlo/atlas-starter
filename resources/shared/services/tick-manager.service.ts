@@ -1,4 +1,4 @@
-import { UtilsService } from '@abstractFlo/shared';
+import { UtilsService } from '@abstractflo/atlas-shared';
 import { RunningTickInterface } from '../interfaces/running-tick.interface';
 
 export class TickManagerService {

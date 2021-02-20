@@ -1,9 +1,9 @@
 import { singleton } from 'tsyringe';
-import { Module } from '@abstractFlo/shared';
-import { ClientPlayerModule } from './modules/player/client-player.module';
+import { Module } from '@abstractflo/atlas-shared';
+import { PlayerComponent } from './components/player.component';
 
 @Module({
-  imports: [ClientPlayerModule]
+  components: [PlayerComponent]
 })
 @singleton()
 export class ClientModule {}

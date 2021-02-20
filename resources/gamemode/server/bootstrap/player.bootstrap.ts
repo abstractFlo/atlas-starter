@@ -1,6 +1,6 @@
 import { off, on, Player } from 'alt-server';
 import { singleton } from 'tsyringe';
-import { UtilsService } from '@abstractFlo/shared';
+import { UtilsService } from '@abstractflo/atlas-shared';
 
 @singleton()
 export class PlayerBootstrap {

@@ -10,7 +10,7 @@
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@altv",
-      "./local_modules/@abstractFlo"
+      "./node_modules/@abstractflo"
     ],
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -22,9 +22,6 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@abstractFlo/*": [
-        "local_modules/@abstractFlo/*"
-      ],
       "@resources/shared/*": [
         "resources/shared/*"
       ]

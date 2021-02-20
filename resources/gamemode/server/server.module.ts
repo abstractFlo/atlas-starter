@@ -1,11 +1,10 @@
 import { singleton } from 'tsyringe';
-import { Module } from '@abstractFlo/shared';
-import { ServerPlayerModule } from './modules/player/server-player.module';
-
+import { Module } from '@abstractflo/atlas-shared';
+import { PlayerComponent } from './components/player.component';
 import './extends/player/alt-player.prototype';
 
 @Module({
-  imports: [ServerPlayerModule]
+  components: [PlayerComponent]
 })
 @singleton()
 export class ServerModule {}

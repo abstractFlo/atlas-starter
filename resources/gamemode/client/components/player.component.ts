@@ -1,10 +1,10 @@
-import { Cmd, LoggerService } from '@abstractFlo/shared';
-import { EventService } from '@abstractFlo/client';
+import { Cmd, LoggerService, UtilsService } from '@abstractflo/atlas-shared';
+import { EventService } from '@abstractflo/atlas-client';
 import { ScriptEvent } from '@resources/shared/constants';
 import { singleton } from 'tsyringe';
 
 @singleton()
-export class ClientPlayerComponent {
+export class PlayerComponent {
 
   constructor(
       private readonly eventService: EventService,
