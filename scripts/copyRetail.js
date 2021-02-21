@@ -3,35 +3,36 @@ import fs from 'fs-extra';
 import {config} from 'dotenv';
 
 const __dirname = path.dirname('');
-const pathToRetail = path.resolve(__dirname, 'retail');
 
 config();
 
-function readRetail() {
-  return fs.readdirSync(pathToRetail, {encoding: 'utf8'});
+function getFolderPath(folder) {
+  return path.resolve(__dirname, folder);
 }
 
-function deleteResDir(dirs) {
-  const resPath = path.resolve(process.env.BUILD_DIR_RETAIL);
-  dirs.forEach((dir) => {
-    const res = path.resolve(resPath, dir);
-    if (fs.existsSync(res)) {
-      fs.removeSync(res);
-      console.log(`Successfully cleared ${res}`);
-    }
+function readFolder(folder) {
+  return fs.readdirSync(getFolderPath(folder), {encoding: 'utf8'});
+}
+
+function deleteResDir() {
+  const dirs = readFolder(process.env.BUILD_DIR_RETAIL);
+  dirs.forEach(dir => {
+    const finalDir = `${process.env.BUILD_DIR_RETAIL}/${dir}`;
+    fs.removeSync(`${finalDir}`);
+    console.log(`Successfully cleared ${finalDir}`);
   })
 }
 
 function copy() {
-  const dirs = readRetail();
-  deleteResDir(dirs);
+  const dirs = readFolder('retail');
+  deleteResDir();
 
   copyPackageJson();
 
   dirs.forEach((dir) => {
-    if (!dir.startsWith('_') && !dir.startsWith('.')) {
-      const dest = path.resolve(process.env.BUILD_DIR_RETAIL, dir);
-      fs.copySync(path.resolve(pathToRetail, dir), dest);
+    if (!dir.startsWith('_') && !dir.startsWith('.') && !dir.includes('.example.')) {
+      const dest = path.resolve(getFolderPath(process.env.BUILD_DIR_RETAIL), dir);
+      fs.copySync(path.resolve(getFolderPath('retail'), dir), dest);
       console.log(`Successfully copied ${dir} to ${dest}`);
     }
   });
@@ -43,7 +44,7 @@ function copy() {
  * Copy the global package json to BUILD_DIR_RETAIL
  */
 function copyPackageJson() {
-  const dest = path.resolve(process.env.BUILD_DIR_RETAIL);
+  const dest = getFolderPath(process.env.BUILD_DIR_RETAIL);
   fs.copySync(path.resolve('', 'package.json'),
       path.resolve(process.env.BUILD_DIR_RETAIL, 'package.json'));
   console.log(`Successfully copied package.json to ${dest}`);
