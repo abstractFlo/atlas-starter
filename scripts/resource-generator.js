@@ -130,13 +130,14 @@ export class ResourceGenerator {
       convertedModules = [],
       external = [],
   ) {
+
     plugins.push(
         nodeResolve(),
         typescript(),
         convertNamedImports({
           modules: [
-            ...Object.keys(pkg.dependencies),
-            ...Object.keys(pkg.devDependencies),
+            ...Object.keys(pkg.dependencies || {}),
+            ...Object.keys(pkg.devDependencies || {}),
             ...this.getDepsFromModule('atlas-server').dependencies,
             ...convertedModules,
           ].filter(m => !m.startsWith('@abstractflo')),
