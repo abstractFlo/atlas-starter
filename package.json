@@ -14,8 +14,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@abstractflo/atlas-client": "^2.0.0",
-    "@abstractflo/atlas-server": "^2.0.0",
-    "@abstractflo/atlas-shared": "^2.0.0"
+    "@abstractflo/atlas-client": "^2.0.1",
+    "@abstractflo/atlas-server": "^2.0.1",
+    "@abstractflo/atlas-shared": "^2.0.1"
   }
 }
