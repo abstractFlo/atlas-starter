@@ -1,11 +1,12 @@
-import * as alt from 'alt-server';
-import { resolve } from 'path';
-import { altLibRegister, setupServerConfigPath } from '@abstractflo/atlas-shared';
-import { PlayerBootstrap } from './player.bootstrap';
 import { container } from 'tsyringe';
-
-altLibRegister(alt);
-setupServerConfigPath(resolve('config'));
+import { PlayerBootstrap } from './player.bootstrap';
 
 const playerBootstrap = container.resolve(PlayerBootstrap);
 playerBootstrap.addPlayerKickHandler();
+
+/**
+ * Remove the player kick handler
+ */
+export function removePlayerKickHandler(): void {
+  playerBootstrap.removePlayerKickHandler();
+}

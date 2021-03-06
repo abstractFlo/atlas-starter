@@ -12,7 +12,8 @@ RUN libnode=$(if [ "$BRANCH" = "dev" ] ; then echo "libnode.so.83" ; else echo "
     wget --no-cache -O vehmodels.bin https://cdn.altv.mp/server/${BRANCH}/x64_linux/data/vehmodels.bin?salt=$buildNumber && \
     wget --no-cache -O vehmods.bin https://cdn.altv.mp/server/${BRANCH}/x64_linux/data/vehmods.bin?salt=$buildNumber && \
     wget --no-cache -O $libnode https://cdn.altv.mp/js-module/${BRANCH}/x64_linux/modules/js-module/$libnode?salt=$nodeBuildNumber && \
-    wget --no-cache -O libjs-module.so https://cdn.altv.mp/js-module/${BRANCH}/x64_linux/modules/js-module/libjs-module.so?salt=$nodeBuildNumber
+    wget --no-cache -O libjs-module.so https://cdn.altv.mp/js-module/${BRANCH}/x64_linux/modules/js-module/libjs-module.so?salt=$nodeBuildNumber && \
+    wget --no-cache -O start.sh https://cdn.altv.mp/others/start.sh?salt=$nodeBuildNumber
 
 RUN libnode=$(if [ "$BRANCH" = "dev" ] ; then echo "libnode.so.83" ; else echo "libnode.so.72" ; fi) && \
     mkdir /altv && \
@@ -22,14 +23,14 @@ RUN libnode=$(if [ "$BRANCH" = "dev" ] ; then echo "libnode.so.83" ; else echo "
     mv vehmodels.bin /altv/data && \
     mv vehmods.bin /altv/data && \
     mv $libnode /altv/modules/js-module && \
-    mv libjs-module.so /altv/modules/js-module
+    mv libjs-module.so /altv/modules/js-module && \
+    mv start.sh /altv/start.sh
+
 
 RUN apt-get purge -y wget jq && \
     apt-get clean
 
-ADD ./start_server.sh /altv/start_server.sh
-RUN sed -i -e 's/\r$//' /altv/start_server.sh
-RUN chmod +x /altv/start_server.sh
+RUN chmod +x /altv/start.sh
 RUN chmod +x /altv/altv-server
 
 

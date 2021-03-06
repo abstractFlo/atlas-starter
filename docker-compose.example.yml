@@ -2,27 +2,27 @@ version: "3.3"
 services:
   altv:
     build:
-      context: ${DOCKER_PROJECT_PATH}/.docker
+      context: ${ATLAS_PROJECT_PATH}/.docker
       args:
         - BRANCH=${SERVER_BRANCH:-release}
     image: 'altv:latest'
+    env_file:
+      - .env
     container_name: altv
     working_dir: /altv
     volumes:
-      - ${DOCKER_PROJECT_PATH}/.env/:/altv/.env
-      - ${DOCKER_PROJECT_PATH}/package.json/:/altv/package.json
+      - ${ATLAS_PROJECT_PATH}/.env/:/altv/.env
+      - ${ATLAS_PROJECT_PATH}/package.json:/altv/package.json
+      - ${ATLAS_PROJECT_PATH}/resources:/altv/resources
+      - ${ATLAS_PROJECT_PATH}/docker-data/server.log:/altv/server.log
+      - ${ATLAS_PROJECT_PATH}/server.cfg/:/altv/server.cfg
+      - ${ATLAS_PROJECT_PATH}/node_modules:/altv/node_modules
 
-      - ${DOCKER_PROJECT_PATH}/dist_retail/config:/altv/config
-      - ${DOCKER_PROJECT_PATH}/dist_resources:/altv/resources
-
-      - ${DOCKER_PROJECT_PATH}/docker-data/logs/:/altv/logs/
-      - ${DOCKER_PROJECT_PATH}/node_modules:/altv/node_modules
       - /etc/localtime:/etc/localtime:ro
     ports:
       - "7788:7788"
       - "7788:7788/udp"
-      - "1337:1337"
-      - "9898:9898"
+      - 1337
     tty: true
 
   altv-mysql:
@@ -40,4 +40,4 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ${DOCKER_PROJECT_PATH}/docker-data/database/:/var/lib/mysql
+      - ${ATLAS_PROJECT_PATH}/docker-data/database/:/var/lib/mysql

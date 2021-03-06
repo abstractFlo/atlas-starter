@@ -1,12 +1,11 @@
+
 import { ScriptEvent } from '@resources/shared/constants';
 import { OnClient } from '@abstractflo/atlas-server';
 import { hash, Player, Vector3, Vehicle } from 'alt-server';
-import { UtilsService } from '@abstractflo/atlas-shared';
-import { singleton } from 'tsyringe';
+import { Component, UtilsService } from '@abstractflo/atlas-shared';
 
-@singleton()
+@Component()
 export class PlayerComponent {
-
 
   /**
    * Spawn the player at specific location after connection complete
@@ -58,4 +57,5 @@ export class PlayerComponent {
 
     }
   }
+
 }

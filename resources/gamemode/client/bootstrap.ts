@@ -1,4 +1,2 @@
-import { altLibRegister } from '@abstractflo/atlas-shared';
-import * as alt from 'alt-client';
-
-altLibRegister(alt);
+//import { registerWebview } from '@abstractflo/atlas-client/helpers';
+//registerWebview('http://yourUrl', 'nameForRouteToEvent')
