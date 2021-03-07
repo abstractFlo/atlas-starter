@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "es6",
+      "esnext"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@altv",
+      "./node_modules/@abstractflo"
+    ],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "importHelpers": false,
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@resources/shared/*": [
+        "resources/shared/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "gamemode",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "watch": "rollup -cw"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@abstractflo/atlas-client": "^2.0.3",
+    "@abstractflo/atlas-server": "^2.0.3",
+    "@abstractflo/atlas-shared": "^2.0.3"
+  }
+}

@@ -1,0 +1,43 @@
+version: "3.3"
+services:
+  altv:
+    build:
+      context: .docker
+      args:
+        - BRANCH=${SERVER_BRANCH:-release}
+    image: 'altv:latest'
+    env_file:
+      - .env
+    container_name: altv
+    working_dir: /altv
+    volumes:
+      - ${ATLAS_PROJECT_PATH}.env/:/altv/.env
+      - ${ATLAS_PROJECT_PATH}/${ATLAS_BUILD_OUTPUT}/package.json:/altv/package.json
+      - ${ATLAS_PROJECT_PATH}/${ATLAS_BUILD_OUTPUT}/resources:/altv/resources
+      - ${ATLAS_PROJECT_PATH}/docker-data/server.log:/altv/server.log
+      - ${ATLAS_PROJECT_PATH}/${ATLAS_BUILD_OUTPUT}/server.cfg:/altv/server.cfg
+      - ${ATLAS_PROJECT_PATH}/node_modules:/altv/node_modules
+
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "7788:7788"
+      - "7788:7788/udp"
+      - 1337
+    tty: true
+
+  altv-mysql:
+    image: mysql:latest
+    container_name: altv-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_HOST: '%'
+      MYSQL_USER: gamemode
+      MYSQL_PASSWORD: demo123
+      MYSQL_DATABASE: gamemode
+    ports:
+      - 3306:3306
+    volumes:
+      - ${ATLAS_PROJECT_PATH}/docker-data/database/:/var/lib/mysql
