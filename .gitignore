@@ -11,7 +11,5 @@ docker-compose.prod.yml
 /dist*
 
 !docker-data/database/.gitkeep
-!docker-data/logs/.gitkeep
+!docker-data/.gitkeep
 docker-data/database/
-docker-data/logs/server.log
-!retail/_config/*
