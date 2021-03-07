@@ -2,7 +2,7 @@ version: "3.3"
 services:
   altv:
     build:
-      context: ${ATLAS_PROJECT_PATH}/.docker
+      context: .docker
       args:
         - BRANCH=${SERVER_BRANCH:-release}
     image: 'altv:latest'
