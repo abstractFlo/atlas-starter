@@ -14,9 +14,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@abstractflo/atlas-client": "^2.0.3",
-    "@abstractflo/atlas-server": "^2.0.3",
-    "@abstractflo/atlas-shared": "^2.0.3",
+    "@abstractflo/atlas-client": "^2.0.7",
+    "@abstractflo/atlas-server": "^2.0.7",
+    "@abstractflo/atlas-shared": "^2.0.7",
+    "@altv/types-client": "^1.5.3",
+    "@altv/types-natives": "^1.1.0",
+    "@altv/types-server": "^1.7.3",
     "typeorm": "^0.2.31"
   }
 }

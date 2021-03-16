@@ -1,8 +1,8 @@
 
 import { ScriptEvent } from '@resources/shared/constants';
 import { OnClient } from '@abstractflo/atlas-server';
-import { hash, Player, Vector3, Vehicle } from 'alt-server';
 import { Component, UtilsService } from '@abstractflo/atlas-shared';
+import { hash, Player, Vector3, Vehicle } from 'alt-server';
 
 @Component()
 export class PlayerComponent {
