@@ -4,7 +4,6 @@ import { UtilsService } from '@abstractflo/atlas-shared';
 
 @singleton()
 export class PlayerBootstrap {
-
   /**
    * Remove the kick handler
    */
@@ -28,5 +27,4 @@ export class PlayerBootstrap {
   private playerKickHandler(player: Player): void {
     player.kick(`Can't connect, server is booting. Please try again later.`);
   }
-
 }

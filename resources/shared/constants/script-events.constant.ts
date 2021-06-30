@@ -1,13 +1,13 @@
 export const ScriptEvent = {
   Player: {
-    ConnectionComplete: 'player:connection:complete'
+    ConnectionComplete: 'player:connection:complete',
   },
 
   Webview: {
-    RouteTo: 'route:to'
+    RouteTo: 'route:to',
   },
 
   Command: {
-    CreateVehicle: 'command:create:vehicle'
-  }
+    CreateVehicle: 'command:create:vehicle',
+  },
 };

@@ -1,4 +1,3 @@
-
 import { ScriptEvent } from '@resources/shared/constants';
 import { OnClient } from '@abstractflo/atlas-server';
 import { Component, UtilsService } from '@abstractflo/atlas-shared';
@@ -6,7 +5,6 @@ import { hash, Player, Vector3, Vehicle } from 'alt-server';
 
 @Component()
 export class PlayerComponent {
-
   /**
    * Spawn the player at specific location after connection complete
    *
@@ -26,7 +24,6 @@ export class PlayerComponent {
    */
   @OnClient(ScriptEvent.Command.CreateVehicle)
   public createVehicle(player: Player, carName: string): void {
-
     UtilsService.log('CREATE VEHICLE');
 
     this.destroyVehicleIfPlayerHasOne(player);
@@ -54,8 +51,6 @@ export class PlayerComponent {
       player.currentVehicle = null;
 
       UtilsService.log(`Destroy vehicle from ${player.name}`);
-
     }
   }
-
 }

@@ -4,11 +4,7 @@ import { ScriptEvent } from '@resources/shared/constants';
 
 @Component()
 export class PlayerComponent {
-
-  constructor(
-      private readonly eventService: EventService,
-      private readonly loggerService: LoggerService
-  ) {}
+  constructor(private readonly eventService: EventService, private readonly loggerService: LoggerService) {}
 
   /**
    * Create new Vehicle
@@ -20,5 +16,4 @@ export class PlayerComponent {
     this.eventService.emitServer(ScriptEvent.Command.CreateVehicle, name);
     this.loggerService.info(`Create new Vehicle ${name} if exists`);
   }
-
 }
