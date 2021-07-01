@@ -8,12 +8,10 @@ import { removePlayerKickHandler } from './bootstrap';
 
 const loader = container.resolve(LoaderService);
 
-loader
-    .bootstrap(ServerModule)
-    .done(() => {
-      removePlayerKickHandler();
-      UtilsService.log('~lg~Booting complete => ~w~Player can now join and have some fun');
-    });
+loader.bootstrap(ServerModule).done(() => {
+  removePlayerKickHandler();
+  UtilsService.log('~lg~Booting complete => ~w~Player can now join and have some fun');
+});
 
 /**
  * Global Error Handler

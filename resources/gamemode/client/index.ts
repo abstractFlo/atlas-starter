@@ -9,12 +9,10 @@ import { ScriptEvent } from '@resources/shared/constants';
 const loader = container.resolve(LoaderService);
 
 UtilsService.eventOn('connectionComplete', () => {
-  loader
-      .bootstrap(ClientModule)
-      .done(() => {
-        UtilsService.log('~lg~Booting complete => ~w~Happy Playing');
+  loader.bootstrap(ClientModule).done(() => {
+    UtilsService.log('~lg~Booting complete => ~w~Happy Playing');
 
-        const eventService = container.resolve(EventService);
-        eventService.emitServer(ScriptEvent.Player.ConnectionComplete);
-      });
+    const eventService = container.resolve(EventService);
+    eventService.emitServer(ScriptEvent.Player.ConnectionComplete);
+  });
 });
