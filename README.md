@@ -1,3 +1,6 @@
+# Notes about upcoming Atlas Version 3.1
+If the new version 3.1 is released, this respository would be archived and no more maintained. The new Atlas CLI has a build in Command for bootstrap a clean new project.
+
 # Atlas Framework Starter for creating nice gamemodes with alt:V
 
 It lives at https://github.com/abstractFlo/atlas-starter/tree/docker.
